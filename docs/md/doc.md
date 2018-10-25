@@ -1273,6 +1273,9 @@ export default class Index extends wepy.page {
 
 对于组件`methods`响应事件，以及小程序页面事件将采用**兼容式混合**，即先响应组件本身响应事件，然后再响应混合对象中响应事件。**注意，这里事件的执行顺序跟Vue中相反，[Vue中是先执行mixin中的函数， 再执行组件本身的函数](https://vuejs.org/v2/guide/mixins.html#Option-Merging)。**
 
+onload事件响应,先执行混合对象的onLoad页面事件，再执行组件本身的onLoad事件。
+onLoad事件的回调，和组件中声名混合的顺序有关，在前的先执行，依次执行完毕后，才会执行组件自身的onLoad回调。
+
 ```Javascript
 // mixins/test.js
 import wepy from 'wepy';
